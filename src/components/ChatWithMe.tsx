@@ -1,28 +1,17 @@
 "use client";
 // <- TODO: Try to get rid of this directive
 
-import Image from "next/image";
-import { Chat } from "@promptbook/components";
+import { LlmChat } from "@promptbook/components";
+import { MockedFackedLlmExecutionTools } from "@promptbook/fake-llm";
+import { useMemo } from "react";
 
 export function ChatWithMe() {
+  const llmTools = useMemo(() => {
+    return new MockedFackedLlmExecutionTools();
+  }, []);
+
   return (
-    <Chat
-      messages={[
-        {
-          id: "1",
-          from: "USER",
-          content: "Hello!",
-          date: new Date(),
-          isComplete: true,
-        },
-        {
-          id: "2",
-          from: "ASSISTANT",
-          content: "Hi! How can I help?",
-          date: new Date(),
-          isComplete: true,
-        },
-      ]}
+    <LlmChat
       participants={[
         {
           name: "USER",
@@ -32,8 +21,7 @@ export function ChatWithMe() {
           isMe: true,
         },
       ]}
-      onMessage={() => {}}
-      // onReset={handleReset}
+      {...{ llmTools }}
     />
   );
 }
