@@ -18,7 +18,7 @@ User doesnt interact in the menus, articles, etc. but with the persona itself. *
 ---
 
 
-[ ]
+[x]
 
 
 Redesign the entire website as different concept:
