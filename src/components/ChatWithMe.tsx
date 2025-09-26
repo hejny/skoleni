@@ -1,13 +1,14 @@
 "use client";
 // <- TODO: !!! Try to get rid of this directive
 
-import { LlmChat } from "@promptbook/components";
+import { LlmChat,  LlmChatProps } from "@promptbook/components";
 // import { MockedFackedLlmExecutionTools } from "@promptbook/fake-llm";
 import { RemoteLlmExecutionTools } from "@promptbook/remote-client";
 import { createAgentLlmExecutionTools,book } from "@promptbook/core";
 import { useMemo } from "react";
 
-export function ChatWithMe() {
+
+export function ChatWithMe(props: Omit<LlmChatProps,'llmTools'>) {
   const llmTools = useMemo(() => {
     // new MockedFackedLlmExecutionTools();
 
@@ -116,6 +117,7 @@ export function ChatWithMe() {
         },
       ]}
       {...{ llmTools }}
+      {...props}
     />
   );
 }

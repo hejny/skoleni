@@ -107,7 +107,7 @@ export default function Home() {
               
               {/* Chat Component - This IS the main interface */}
               <div className="min-h-[400px] md:min-h-[500px]">
-                <ChatWithMe />
+                <ChatWithMe className="max-h-[400px] md:max-h-[500px]"/>
               </div>
               
               <div className="mt-4 text-xs text-gray-400 text-center">
