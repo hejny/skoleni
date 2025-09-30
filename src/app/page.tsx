@@ -37,8 +37,8 @@ export default function Home() {
       <div className="flex-1 relative z-10 p-4 md:p-6">
         <div className="h-full max-w-6xl mx-auto">
           {/* Welcome message overlay - appears on first visit */}
-          <div className="absolute top-8 left-8 right-8 z-30">
-            <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-2xl mx-auto">
+          <div className="absolute top-8 left-8 right-8 z-30 pointer-events-none">
+            <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-2xl mx-auto pointer-events-auto">
               <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
                 Hi! I'm Pavol 👋
               </h1>
@@ -52,10 +52,9 @@ export default function Home() {
                 <button
                   type="button"
                   className="px-3 py-1 bg-purple-500/30 text-purple-200 rounded-full text-xs cursor-pointer"
-                  onClick={() => {
-                    console.trace("!!!!!!!!!");
-                    sendMessage("Tell me about your workshops!");
-                  }}
+                  onClick={() =>
+                    void sendMessage("Tell me about your workshops!")
+                  }
                 >
                   Workshop Design
                 </button>

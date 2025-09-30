@@ -124,7 +124,9 @@ export function ChatWithMe(props: Omit<LlmChatProps, "llmTools">) {
               Hi,
               I am Pavol !!!
 
-              [Hello](?message=aaa)
+              [Say Hello](?message=Hello!)
+              [Ask for help](?message=I need help with ...)
+              [Just say thanks](?message=Thanks!)
           `),
           date: new Date(),
           isComplete: true,
