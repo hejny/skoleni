@@ -2,9 +2,11 @@
 
 import { ChatWithMe } from "@/components/ChatWithMe";
 import { useSendMessageToLlmChat } from "@promptbook/components";
+import { useState } from "react";
 
 export default function Home() {
   const sendMessage = useSendMessageToLlmChat();
+  const [isInitialWelcomeVisible, setInitialWelcomeVisible] = useState(true);
 
   return (
     <div className="h-screen flex flex-col relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -37,64 +39,76 @@ export default function Home() {
       <div className="flex-1 relative z-10 p-4 md:p-6">
         <div className="h-full max-w-6xl mx-auto">
           {/* Welcome message overlay - appears on first visit */}
-          <div className="absolute top-8 left-8 right-8 z-30 pointer-events-none">
-            <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-2xl mx-auto pointer-events-auto">
-              <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                Hi! I'm Pavol 👋
-              </h1>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                Welcome to my AI-powered workspace. I'm here to help transform
-                your business with practical AI integration. Ask me about
-                workshops, pricing, implementation strategies, or anything else
-                you're curious about.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  className="px-3 py-1 bg-purple-500/30 text-purple-200 rounded-full text-xs cursor-pointer"
-                  onClick={() =>
-                    void sendMessage("Tell me about your workshops!")
-                  }
-                >
-                  Workshop Design
-                </button>
-                <button
-                  type="button"
-                  className="px-3 py-1 bg-blue-500/30 text-blue-200 rounded-full text-xs cursor-pointer"
-                  onClick={() =>
-                    void sendMessage("Tell me about your AI strategy!")
-                  }
-                >
-                  AI Strategy
-                </button>
-                <button
-                  type="button"
-                  className="px-3 py-1 bg-green-500/30 text-green-200 rounded-full text-xs cursor-pointer"
-                  onClick={() =>
-                    void sendMessage("Tell me about your team training!")
-                  }
-                >
-                  Team Training
-                </button>
-                <button
-                  type="button"
-                  className="px-3 py-1 bg-pink-500/30 text-pink-200 rounded-full text-xs cursor-pointer"
-                  onClick={() =>
-                    void sendMessage(
-                      "Tell me about your implementation process!",
-                    )
-                  }
-                >
-                  Implementation
-                </button>
+          {isInitialWelcomeVisible && (
+            <div className="absolute top-8 left-8 right-8 z-30 pointer-events-none">
+              <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-2xl mx-auto pointer-events-auto">
+                <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                  Hi! I'm Pavol 👋
+                </h1>
+                <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                  Welcome to my AI-powered workspace. I'm here to help transform
+                  your business with practical AI integration. Ask me about
+                  workshops, pricing, implementation strategies, or anything
+                  else you're curious about.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    className="px-3 py-1 bg-purple-500/30 text-purple-200 rounded-full text-xs cursor-pointer"
+                    onClick={() =>
+                      void sendMessage("Tell me about your workshops!")
+                    }
+                  >
+                    Workshop Design
+                  </button>
+                  <button
+                    type="button"
+                    className="px-3 py-1 bg-blue-500/30 text-blue-200 rounded-full text-xs cursor-pointer"
+                    onClick={() =>
+                      void sendMessage("Tell me about your AI strategy!")
+                    }
+                  >
+                    AI Strategy
+                  </button>
+                  <button
+                    type="button"
+                    className="px-3 py-1 bg-green-500/30 text-green-200 rounded-full text-xs cursor-pointer"
+                    onClick={() =>
+                      void sendMessage("Tell me about your team training!")
+                    }
+                  >
+                    Team Training
+                  </button>
+                  <button
+                    type="button"
+                    className="px-3 py-1 bg-pink-500/30 text-pink-200 rounded-full text-xs cursor-pointer"
+                    onClick={() =>
+                      void sendMessage(
+                        "Tell me about your implementation process!",
+                      )
+                    }
+                  >
+                    Implementation
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* The main persona interface - THIS IS THE WEBSITE */}
           <div className="h-full bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
             <div className="h-full p-6 md:p-8">
-              <ChatWithMe className="h-full" sendMessage={sendMessage} />
+              <ChatWithMe
+                className="h-full"
+                sendMessage={sendMessage}
+                onChange={(chatMessages) => {
+                  if (isInitialWelcomeVisible && chatMessages.length > 1) {
+                    setInitialWelcomeVisible(false);
+                  } else {
+                    setInitialWelcomeVisible(true);
+                  }
+                }}
+              />
             </div>
           </div>
 
