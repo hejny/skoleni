@@ -70,7 +70,7 @@ export default function Home() {
                 </button>
                 <button
                   type="button"
-                  className="px-3 py-1 bg-green-500/30 text-green-200 rounded-full text-xs"
+                  className="px-3 py-1 bg-green-500/30 text-green-200 rounded-full text-xs cursor-pointer"
                   onClick={() =>
                     void sendMessage("Tell me about your team training!")
                   }
@@ -79,7 +79,7 @@ export default function Home() {
                 </button>
                 <button
                   type="button"
-                  className="px-3 py-1 bg-pink-500/30 text-pink-200 rounded-full text-xs"
+                  className="px-3 py-1 bg-pink-500/30 text-pink-200 rounded-full text-xs cursor-pointer"
                   onClick={() =>
                     void sendMessage(
                       "Tell me about your implementation process!",
