@@ -4,10 +4,10 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'collboard.fra1.cdn.digitaloceanspaces.com',
-        port: '',
-        pathname: '/ptbk/social-images/**',
+        protocol: "https",
+        hostname: "collboard.fra1.cdn.digitaloceanspaces.com",
+        port: "",
+        pathname: "/ptbk/social-images/**",
       },
     ],
   },

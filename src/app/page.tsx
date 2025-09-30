@@ -1,8 +1,11 @@
 "use client";
 
 import { ChatWithMe } from "@/components/ChatWithMe";
+import { useSendMessageToLlmChat } from "@promptbook/components";
 
 export default function Home() {
+  const sendMessage = useSendMessageToLlmChat();
+
   return (
     <div className="h-screen flex flex-col relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Ambient background effects - representing the AI presence */}
@@ -33,30 +36,58 @@ export default function Home() {
       {/* THE PERSONA IS THE WEBSITE - Full-screen chat interface */}
       <div className="flex-1 relative z-10 p-4 md:p-6">
         <div className="h-full max-w-6xl mx-auto">
-          
           {/* Welcome message overlay - appears on first visit */}
-          <div className="absolute top-8 left-8 right-8 z-30 pointer-events-none">
+          <div className="absolute top-8 left-8 right-8 z-30">
             <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-2xl mx-auto">
               <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
                 Hi! I'm Pavol 👋
               </h1>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                Welcome to my AI-powered workspace. I'm here to help transform your business with practical AI integration. 
-                Ask me about workshops, pricing, implementation strategies, or anything else you're curious about.
+                Welcome to my AI-powered workspace. I'm here to help transform
+                your business with practical AI integration. Ask me about
+                workshops, pricing, implementation strategies, or anything else
+                you're curious about.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-purple-500/30 text-purple-200 rounded-full text-xs">
+                <button
+                  type="button"
+                  className="px-3 py-1 bg-purple-500/30 text-purple-200 rounded-full text-xs cursor-pointer"
+                  onClick={() => {
+                    console.trace("!!!!!!!!!");
+                    sendMessage("Tell me about your workshops!");
+                  }}
+                >
                   Workshop Design
-                </span>
-                <span className="px-3 py-1 bg-blue-500/30 text-blue-200 rounded-full text-xs">
+                </button>
+                <button
+                  type="button"
+                  className="px-3 py-1 bg-blue-500/30 text-blue-200 rounded-full text-xs cursor-pointer"
+                  onClick={() =>
+                    void sendMessage("Tell me about your AI strategy!")
+                  }
+                >
                   AI Strategy
-                </span>
-                <span className="px-3 py-1 bg-green-500/30 text-green-200 rounded-full text-xs">
+                </button>
+                <button
+                  type="button"
+                  className="px-3 py-1 bg-green-500/30 text-green-200 rounded-full text-xs"
+                  onClick={() =>
+                    void sendMessage("Tell me about your team training!")
+                  }
+                >
                   Team Training
-                </span>
-                <span className="px-3 py-1 bg-pink-500/30 text-pink-200 rounded-full text-xs">
+                </button>
+                <button
+                  type="button"
+                  className="px-3 py-1 bg-pink-500/30 text-pink-200 rounded-full text-xs"
+                  onClick={() =>
+                    void sendMessage(
+                      "Tell me about your implementation process!",
+                    )
+                  }
+                >
                   Implementation
-                </span>
+                </button>
               </div>
             </div>
           </div>
@@ -64,7 +95,7 @@ export default function Home() {
           {/* The main persona interface - THIS IS THE WEBSITE */}
           <div className="h-full bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
             <div className="h-full p-6 md:p-8">
-              <ChatWithMe className="h-full" />
+              <ChatWithMe className="h-full" sendMessage={sendMessage} />
             </div>
           </div>
 
@@ -73,12 +104,12 @@ export default function Home() {
             <div className="flex justify-center">
               <div className="bg-black/40 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
                 <p className="text-gray-300 text-xs text-center">
-                  💡 Try: "Tell me about your workshops" • "What's your pricing?" • "How can AI help my team?"
+                  💡 Try: "Tell me about your workshops" • "What's your
+                  pricing?" • "How can AI help my team?"
                 </p>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -86,16 +117,24 @@ export default function Home() {
       <div className="relative z-20 p-4 bg-black/10 backdrop-blur-sm border-t border-white/5">
         <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400 space-y-2 sm:space-y-0">
           <div className="flex space-x-4">
-            <a href="https://www.facebook.com/hejny" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.facebook.com/hejny"
+              className="hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Facebook
             </a>
-            <a href="https://github.com/webgptorg/promptbook" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/webgptorg/promptbook"
+              className="hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Promptbook Engine
             </a>
           </div>
-          <div>
-            © 2024 Pavol Hejný • AI Integration Specialist
-          </div>
+          <div>© 2024 Pavol Hejný • AI Integration Specialist</div>
         </div>
       </div>
     </div>

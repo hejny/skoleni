@@ -14,15 +14,26 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Pavol Hejný - AI Integration Consultant | Chat Directly with Me",
-  description: "I'm Pavol Hejný, author of Promptbook engine and AI specialist. Chat directly with me about AI workshops, business integration strategies, and custom training solutions. No menus, no forms - just direct conversation.",
-  keywords: ["Pavol Hejný", "AI consultant", "AI workshops", "artificial intelligence training", "business AI integration", "Promptbook", "AI persona interface", "direct AI consultation"],
+  description:
+    "I'm Pavol Hejný, author of Promptbook engine and AI specialist. Chat directly with me about AI workshops, business integration strategies, and custom training solutions. No menus, no forms - just direct conversation.",
+  keywords: [
+    "Pavol Hejný",
+    "AI consultant",
+    "AI workshops",
+    "artificial intelligence training",
+    "business AI integration",
+    "Promptbook",
+    "AI persona interface",
+    "direct AI consultation",
+  ],
   authors: [{ name: "Pavol Hejný" }],
   creator: "Pavol Hejný",
   publisher: "Pavol Hejný",
   robots: "index, follow",
   openGraph: {
     title: "Chat with Pavol Hejný - AI Integration Specialist",
-    description: "Revolutionary AI-powered interface where you chat directly with me, Pavol Hejný. Get instant answers about AI workshops, implementation strategies, and business transformation.",
+    description:
+      "Revolutionary AI-powered interface where you chat directly with me, Pavol Hejný. Get instant answers about AI workshops, implementation strategies, and business transformation.",
     url: "https://www.hejny.org",
     siteName: "Pavol Hejný - AI Persona Interface",
     type: "website",
@@ -38,8 +49,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Chat with Pavol Hejný - AI Integration Specialist",
-    description: "Revolutionary AI-powered interface - chat directly with me about AI workshops and business transformation",
-    images: ["https://collboard.fra1.cdn.digitaloceanspaces.com/ptbk/social-images/scontent-lga3-1.xx.fbcdn.net/78/78b62041a759f07e57da163985ee20d21e1bef612a031f3243066c0ece166d53.jpg"],
+    description:
+      "Revolutionary AI-powered interface - chat directly with me about AI workshops and business transformation",
+    images: [
+      "https://collboard.fra1.cdn.digitaloceanspaces.com/ptbk/social-images/scontent-lga3-1.xx.fbcdn.net/78/78b62041a759f07e57da163985ee20d21e1bef612a031f3243066c0ece166d53.jpg",
+    ],
   },
 };
 

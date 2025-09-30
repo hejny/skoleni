@@ -1,26 +1,28 @@
 "use client";
 // <- TODO: !!! Try to get rid of this directive
 
-import { LlmChat,  LlmChatProps } from "@promptbook/components";
+import { type LlmChatProps, LlmChat } from "@promptbook/components";
+import { spaceTrim } from "@promptbook/utils";
 // import { MockedFackedLlmExecutionTools } from "@promptbook/fake-llm";
 import { RemoteLlmExecutionTools } from "@promptbook/remote-client";
-import { createAgentLlmExecutionTools,book } from "@promptbook/core";
+import { createAgentLlmExecutionTools, book } from "@promptbook/core";
 import { useMemo } from "react";
 
-
-export function ChatWithMe(props: Omit<LlmChatProps,'llmTools'>) {
+export function ChatWithMe(props: Omit<LlmChatProps, "llmTools">) {
   const llmTools = useMemo(() => {
     // new MockedFackedLlmExecutionTools();
 
     const baseLlmTools = new RemoteLlmExecutionTools({
       remoteServerUrl: "https://promptbook.s5.ptbk.io/",
-      identification: { isAnonymous: false, appId: "20a65fee-59f6-4d05-acd0-8e5ae8345488" },
+      identification: {
+        isAnonymous: false,
+        appId: "20a65fee-59f6-4d05-acd0-8e5ae8345488",
+      },
     });
 
-
     const agentLlmTools = createAgentLlmExecutionTools({
-        llmTools: baseLlmTools,
-        agentSource: book`
+      llmTools: baseLlmTools,
+      agentSource: book`
             Pavol Hejný
 
             PERSONA Pavol Hejný. Interested in Coding, AI, Business
@@ -99,7 +101,14 @@ export function ChatWithMe(props: Omit<LlmChatProps,'llmTools'>) {
 
             https://youtu.be/lRQvIPZ7Zmg
             EXAMPLE Člověk si po dloooouhé době jednou zapne zprávy a tam hned první člověk Kirill 👍
-        `
+
+
+            RULE Add button suggestions for quick user actions, for example:
+
+            [Say Hello](?message=Hello!)
+            [Ask for help](?message=I need help with ...)
+            [Just say thanks](?message=Thanks!)
+        `,
     });
 
     return agentLlmTools;
@@ -107,6 +116,20 @@ export function ChatWithMe(props: Omit<LlmChatProps,'llmTools'>) {
 
   return (
     <LlmChat
+      initialMessages={[
+        {
+          id: "1",
+          from: "USER",
+          content: spaceTrim(`
+              Hi,
+              I am Pavol !!!
+
+              [Hello](?message=aaa)
+          `),
+          date: new Date(),
+          isComplete: true,
+        },
+      ]}
       participants={[
         {
           name: "USER",

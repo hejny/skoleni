@@ -21,7 +21,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -36,13 +37,22 @@ body {
 
 /* Persona-specific styles */
 .persona-container {
-  background: radial-gradient(ellipse at center, var(--persona-glow) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse at center,
+    var(--persona-glow) 0%,
+    transparent 70%
+  );
   animation: pulse-glow 4s ease-in-out infinite;
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .chat-interface {
