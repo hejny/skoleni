@@ -9,3 +9,6 @@ Enhance branding of the page, it should be all about Pavol Hejný and his AI wor
   - Photo
   - Background gradient
   - "Hi! I'm Pavol 👋" box
+- Change the background to a gradient from purple -> blue/cyan , base it on the brand color #79EAFD but make it a bit more darken and less saturated.
+- Make the page visually more appealing, use the branding wisely.
+- Center the "Hi! I'm Pavol 👋" box
