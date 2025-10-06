@@ -40,21 +40,26 @@ export default function Home() {
         <div className="h-full max-w-6xl mx-auto">
           {/* Welcome message overlay - appears on first visit */}
           {isInitialWelcomeVisible && (
-            <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none">
-              <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-2xl mx-auto pointer-events-auto">
-                <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
+            <div className="absolute top-1/10 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none">
+              <div className="persona-container bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-[var(--accent)] max-w-2xl mx-auto pointer-events-auto flex flex-col items-center">
+                <img
+                  src="https://www.pavolhejny.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpavol-hejny-transparent.56d4a7a5.png&w=1080&q=100"
+                  alt="Pavol Hejný"
+                  className="persona-photo"
+                />
+                <h1 className="persona-title text-3xl md:text-4xl font-bold text-white mb-3 text-center">
                   Hi! I'm Pavol
                 </h1>
-                <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                <p className="persona-subtitle text-gray-300 text-base md:text-lg leading-relaxed text-center max-w-xl">
                   Welcome to my AI-powered workspace. I'm here to help transform
                   your business with practical AI integration. Ask me about
                   workshops, pricing, implementation strategies, or anything
                   else you're curious about.
                 </p>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="persona-buttons">
                   <button
                     type="button"
-                    className="px-3 py-1 bg-purple-500/30 text-purple-200 rounded-full text-xs cursor-pointer"
+                    className="persona-button"
                     onClick={() =>
                       void sendMessage("Tell me about your workshops!")
                     }
@@ -63,7 +68,7 @@ export default function Home() {
                   </button>
                   <button
                     type="button"
-                    className="px-3 py-1 bg-blue-500/30 text-blue-200 rounded-full text-xs cursor-pointer"
+                    className="persona-button"
                     onClick={() =>
                       void sendMessage("Tell me about your AI strategy!")
                     }
@@ -72,7 +77,7 @@ export default function Home() {
                   </button>
                   <button
                     type="button"
-                    className="px-3 py-1 bg-green-500/30 text-green-200 rounded-full text-xs cursor-pointer"
+                    className="persona-button"
                     onClick={() =>
                       void sendMessage("Tell me about your team training!")
                     }
@@ -81,7 +86,7 @@ export default function Home() {
                   </button>
                   <button
                     type="button"
-                    className="px-3 py-1 bg-pink-500/30 text-pink-200 rounded-full text-xs cursor-pointer"
+                    className="persona-button"
                     onClick={() =>
                       void sendMessage(
                         "Tell me about your implementation process!",

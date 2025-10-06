@@ -17,7 +17,7 @@ Enhance branding of the page, it should be all about Pavol Hejný and his AI wor
 ---
 
 
-[ ]
+[x]
 
 Enhance branding of the page, it should be all about Pavol Hejný and his AI workshops.
 
