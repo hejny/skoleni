@@ -9,7 +9,7 @@ export default function Home() {
   const [isInitialWelcomeVisible, setInitialWelcomeVisible] = useState(true);
 
   return (
-    <div className="h-screen flex flex-col relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="h-screen flex flex-col relative overflow-hidden">
       {/* Ambient background effects - representing the AI presence */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent"></div>
