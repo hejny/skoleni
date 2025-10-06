@@ -107,18 +107,6 @@ export default function Home() {
               />
             </div>
           </div>
-
-          {/* Floating contextual hints */}
-          <div className="absolute bottom-8 left-8 right-8 z-30 pointer-events-none">
-            <div className="flex justify-center">
-              <div className="bg-black/40 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
-                <p className="text-gray-300 text-xs text-center">
-                  💡 Try: "Tell me about your workshops" • "What's your
-                  pricing?" • "How can AI help my team?"
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
