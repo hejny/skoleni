@@ -116,22 +116,27 @@ export function ChatWithMe(props: Omit<LlmChatProps, "llmTools">) {
 
   return (
     <LlmChat
-      initialMessages={[
-        {
-          id: "1",
-          from: "USER",
-          content: spaceTrim(`
-              Hi,
-              I am Pavol !!!
+      isSaveButtonEnabled={false}
+      initialMessages={
+        [
+          /*/
+          {
+            id: "1",
+            from: "USER",
+            content: spaceTrim(`
+                Hi,
+                I am Pavol !!!
 
-              [Say Hello](?message=Hello!)
-              [Ask for help](?message=I need help with ...)
-              [Just say thanks](?message=Thanks!)
-          `),
-          date: new Date(),
-          isComplete: true,
-        },
-      ]}
+                [Say Hello](?message=Hello!)
+                [Ask for help](?message=I need help with ...)
+                [Just say thanks](?message=Thanks!)
+            `),
+            date: new Date(),
+            isComplete: true,
+          },
+          /**/
+        ]
+      }
       participants={[
         {
           name: "USER",
