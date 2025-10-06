@@ -29,9 +29,9 @@ export default function Home() {
             <div className="text-gray-400 text-xs">AI Workshop Specialist</div>
           </div>
         </div>
-        <div className="flex items-center space-x-2">
-          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          <span className="text-green-400 text-sm">Online now</span>
+<div className="flex items-center space-x-2 border border-green-400 rounded px-2 py-3">
+  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+<span className="text-green-400 text-sm">Online now</span>
         </div>
       </div>
 
