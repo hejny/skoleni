@@ -39,8 +39,8 @@ export default function Home() {
       <div className="flex-1 relative z-10 p-4 md:p-6">
         <div className="h-full max-w-6xl mx-auto">
           {/* Welcome message overlay - appears on first visit */}
-          {isInitialWelcomeVisible && (
-            <div className="absolute top-8 left-8 right-8 z-30 pointer-events-none">
+{isInitialWelcomeVisible && (
+<div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none">
               <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-2xl mx-auto pointer-events-auto">
                 <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
                   Hi! I'm Pavol 👋
