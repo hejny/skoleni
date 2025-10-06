@@ -2,8 +2,6 @@
 // <- TODO: !!! Try to get rid of this directive
 
 import { type LlmChatProps, LlmChat } from "@promptbook/components";
-import { spaceTrim } from "@promptbook/utils";
-// import { MockedFackedLlmExecutionTools } from "@promptbook/fake-llm";
 import { RemoteLlmExecutionTools } from "@promptbook/remote-client";
 import { createAgentLlmExecutionTools, book } from "@promptbook/core";
 import { useMemo } from "react";
