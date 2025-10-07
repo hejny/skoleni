@@ -39,9 +39,9 @@ export default function Home() {
       <div className="flex-1 relative z-10 flex flex-col min-h-0">
         <div className="flex-1 max-w-6xl mx-auto w-full px-4 md:px-6 py-4 md:py-6 min-h-0">
           {/* Welcome message overlay - appears on first visit */}
-          {isInitialWelcomeVisible && (
-            <div className="absolute top-1/10 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none">
-              <div className="persona-container bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-[var(--accent)] max-w-2xl mx-auto pointer-events-auto flex flex-col items-center">
+{isInitialWelcomeVisible && (
+            <div className="fixed inset-0 pb-[110px] flex items-center justify-center z-30 pointer-events-none sm:pb-[120px]">
+              <div className="persona-container bg-black/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-[var(--accent)] max-w-2xl w-full mx-4 sm:mx-auto pointer-events-auto flex flex-col items-center">
                 <img
                   src="https://www.pavolhejny.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpavol-hejny-transparent.56d4a7a5.png&w=1080&q=100"
                   alt="Pavol Hejný"
