@@ -68,21 +68,31 @@ body {
 .persona-button {
   font-size: 1rem;
   font-weight: 600;
-  padding: 0.75rem 2rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, #79EAFD 60%, #aef7ff 100%);
-  color: #222;
-  box-shadow: 0 2px 16px rgba(121, 234, 253, 0.15);
-  border: none;
+  background: var(--chat-bg);
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 2px 8px var(--accent-muted);
   cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.2s;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+  outline: none;
+  margin: 0.25rem;
+}
+
+.persona-button:hover,
+.persona-button:focus {
+  background: var(--accent);
+  color: #111;
+  box-shadow: 0 4px 24px var(--accent-muted);
+  transform: scale(1.05);
 }
 
 .persona-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 4px 32px rgba(121, 234, 253, 0.25);
-  background: linear-gradient(90deg, #aef7ff 40%, #79EAFD 100%);
+  background: var(--accent);
   color: #111;
+  border-color: var(--accent);
+  transform: scale(1.08);
 }
 
 @keyframes pulse-glow {
