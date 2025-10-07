@@ -118,8 +118,9 @@ export function ChatWithMe(props: Omit<LlmChatProps, "llmTools">) {
       isSaveButtonEnabled={false}
       userParticipantName="USER"
       llmParticipantName="PAVOL_HEJNY"
-      initialMessages={[
-        /**/
+      initialMessages={
+        [
+          /*/
         {
           id: 0,
           from: "USER",
@@ -142,7 +143,8 @@ export function ChatWithMe(props: Omit<LlmChatProps, "llmTools">) {
         },
 
         /**/
-      ]}
+        ]
+      }
       participants={[
         {
           name: "PAVOL_HEJNY",
