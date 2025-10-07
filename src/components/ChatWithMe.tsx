@@ -4,6 +4,7 @@
 import { type LlmChatProps, LlmChat } from "@promptbook/components";
 import { RemoteLlmExecutionTools } from "@promptbook/remote-client";
 import { createAgentLlmExecutionTools, book } from "@promptbook/core";
+import { spaceTrim } from "@promptbook/utils";
 import { useMemo } from "react";
 
 export function ChatWithMe(props: Omit<LlmChatProps, "llmTools">) {
@@ -115,32 +116,47 @@ export function ChatWithMe(props: Omit<LlmChatProps, "llmTools">) {
   return (
     <LlmChat
       isSaveButtonEnabled={false}
-      initialMessages={
-        [
-          /*/
-          {
-            id: "1",
-            from: "USER",
-            content: spaceTrim(`
-                Hi,
-                I am Pavol !!!
+      userParticipantName="USER"
+      llmParticipantName="PAVOL_HEJNY"
+      initialMessages={[
+        /**/
+        {
+          id: 0,
+          from: "USER",
+          content: spaceTrim(`
+              Hello Pavol!
+          `),
+          isComplete: true,
+        },
+        {
+          id: 1,
+          from: "PAVOL_HEJNY",
+          content: spaceTrim(`
+              Hi,
+              I am Pavol !!!
 
-                [Say Hello](?message=Hello!)
-                [Ask for help](?message=I need help with ...)
-                [Just say thanks](?message=Thanks!)
-            `),
-            date: new Date(),
-            isComplete: true,
-          },
-          /**/
-        ]
-      }
+              [Say Hello](?message=Hello!)
+              [Ask for help](?message=I need help with ...)
+              [Just say thanks](?message=Thanks!)
+          `),
+        },
+
+        /**/
+      ]}
       participants={[
+        {
+          name: "PAVOL_HEJNY",
+          fullname: "Pavol Hejný",
+          avatarSrc:
+            "https://www.pavolhejny.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpavol-hejny-transparent.56d4a7a5.png&w=1080&q=100",
+          color: "#79EAFD",
+          isMe: false,
+        },
         {
           name: "USER",
           fullname: "User",
-          avatarSrc: "https://i.pravatar.cc/300?u=USER",
-          color: "blue",
+          // avatarSrc: "https://i.pravatar.cc/300?u=USER",
+          color: "#115EB6",
           isMe: true,
         },
       ]}
