@@ -101,7 +101,7 @@ export default function Home() {
           )}
 
           {/* The main persona interface - THIS IS THE WEBSITE */}
-          <div className="flex-1 bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10 shadow-2xl overflow-hidden min-h-0">
+          <div className="flex-1 bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10 shadow-2xl overflow-hidden h-full">
             <ChatWithMe
               className="h-full"
               sendMessage={sendMessage}
