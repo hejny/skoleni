@@ -29,15 +29,15 @@ export default function Home() {
             <div className="text-gray-400 text-xs">AI Workshop Specialist</div>
           </div>
         </div>
-<div className="flex items-center space-x-2 border border-green-400 rounded px-2 py-3">
-  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-<span className="text-green-400 text-sm">Online now</span>
+        <div className="flex items-center space-x-2 border border-green-400 rounded px-2 py-3">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <span className="text-green-400 text-sm">Online now</span>
         </div>
       </div>
 
       {/* THE PERSONA IS THE WEBSITE - Full-screen chat interface */}
-      <div className="flex-1 relative z-10 p-4 md:p-6">
-        <div className="h-full max-w-6xl mx-auto">
+      <div className="flex-1 relative z-10 flex flex-col min-h-0">
+        <div className="flex-1 max-w-6xl mx-auto w-full px-4 md:px-6 py-4 md:py-6 min-h-0">
           {/* Welcome message overlay - appears on first visit */}
           {isInitialWelcomeVisible && (
             <div className="absolute top-1/10 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none">
@@ -101,16 +101,14 @@ export default function Home() {
           )}
 
           {/* The main persona interface - THIS IS THE WEBSITE */}
-          <div className="h-full bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
-            <div className="h-full p-6 md:p-8">
-              <ChatWithMe
-                className="h-full"
-                sendMessage={sendMessage}
-                onChange={(chatMessages) => {
-                  setInitialWelcomeVisible(chatMessages.length === 0);
-                }}
-              />
-            </div>
+          <div className="flex-1 bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10 shadow-2xl overflow-hidden min-h-0">
+            <ChatWithMe
+              className="h-full"
+              sendMessage={sendMessage}
+              onChange={(chatMessages) => {
+                setInitialWelcomeVisible(chatMessages.length === 0);
+              }}
+            />
           </div>
         </div>
       </div>
