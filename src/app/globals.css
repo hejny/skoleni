@@ -8,6 +8,7 @@
   --border: rgba(121, 234, 253, 0.2);
   --chat-bg: rgba(121, 234, 253, 0.05);
   --persona-glow: rgba(121, 234, 253, 0.3);
+  --input-bar-height: 110px;
 }
 
 @theme inline {
@@ -124,6 +125,9 @@ body {
 }
 
 @media (max-width: 480px) {
+  :root {
+    --input-bar-height: 120px;
+  }
   .persona-title {
     font-size: 1.5rem;
   }
