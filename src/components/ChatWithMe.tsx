@@ -7,9 +7,16 @@ import { createAgentLlmExecutionTools, book } from "@promptbook/core";
 import { spaceTrim } from "@promptbook/utils";
 import { useMemo } from "react";
 
+import { useState } from "react";
+
 export function ChatWithMe(
-  props: Omit<LlmChatProps, "llmTools"> & { className?: string },
+  props: Omit<LlmChatProps, "llmTools"> & {
+    className?: string;
+    sendMessage: (msg: string) => void;
+  },
 ) {
+  const [isInitialWelcomeVisible, setInitialWelcomeVisible] = useState(true);
+
   const llmTools = useMemo(() => {
     // new MockedFackedLlmExecutionTools();
 
@@ -116,38 +123,12 @@ export function ChatWithMe(
   }, []);
 
   return (
-    <div className={`h-full ${props.className ?? ""}`}>
+    <div className={`h-full ${props.className ?? ""} relative`}>
       <LlmChat
         isSaveButtonEnabled={false}
         userParticipantName="USER"
         llmParticipantName="PAVOL_HEJNY"
-        initialMessages={
-          [
-            /*/
-          {
-            id: 0,
-            from: "USER",
-            content: spaceTrim(`
-                Hello Pavol!
-            `),
-            isComplete: true,
-          },
-          {
-            id: 1,
-            from: "PAVOL_HEJNY",
-            content: spaceTrim(`
-                Hi,
-                I am Pavol !!!
-
-                [Say Hello](?message=Hello!)
-                [Ask for help](?message=I need help with ...)
-                [Just say thanks](?message=Thanks!)
-            `),
-          },
-
-          /**/
-          ]
-        }
+        initialMessages={[]}
         participants={[
           {
             name: "PAVOL_HEJNY",
@@ -160,16 +141,79 @@ export function ChatWithMe(
           {
             name: "USER",
             fullname: "User",
-            // avatarSrc: "https://i.pravatar.cc/300?u=USER",
             color: "#115EB6",
             isMe: true,
           },
         ]}
-        // style={{ backgroundColor: "green", height: "100% !important" }}
         className={`h-full flex flex-col ${props.className ?? ""}`}
         {...{ llmTools }}
         {...props}
-      />
+        onChange={(chatMessages, ...rest) => {
+          setInitialWelcomeVisible(chatMessages.length === 0);
+          if (props.onChange) props.onChange(chatMessages, ...rest);
+        }}
+      >
+        {isInitialWelcomeVisible && (
+          <div className="h-full w-full">
+            <div className="persona-container bg-black/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-[var(--accent)] max-w-2xl w-full mx-4 sm:mx-auto pointer-events-auto flex flex-col items-center">
+              <img
+                src="https://www.pavolhejny.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpavol-hejny-transparent.56d4a7a5.png&w=1080&q=100"
+                alt="Pavol Hejný"
+                className="persona-photo"
+              />
+              <h1 className="persona-title text-3xl md:text-4xl font-bold text-white mb-3 text-center">
+                Hi! I'm Pavol
+              </h1>
+              <p className="persona-subtitle text-gray-300 text-base md:text-lg leading-relaxed text-center max-w-xl">
+                Welcome to my AI-powered workspace. I'm here to help transform
+                your business with practical AI integration. Ask me about
+                workshops, pricing, implementation strategies, or anything else
+                you're curious about.
+              </p>
+              <div className="persona-buttons">
+                <button
+                  type="button"
+                  className="persona-button"
+                  onClick={() =>
+                    void props.sendMessage("Tell me about your workshops!")
+                  }
+                >
+                  Workshop Design
+                </button>
+                <button
+                  type="button"
+                  className="persona-button"
+                  onClick={() =>
+                    void props.sendMessage("Tell me about your AI strategy!")
+                  }
+                >
+                  AI Strategy
+                </button>
+                <button
+                  type="button"
+                  className="persona-button"
+                  onClick={() =>
+                    void props.sendMessage("Tell me about your team training!")
+                  }
+                >
+                  Team Training
+                </button>
+                <button
+                  type="button"
+                  className="persona-button"
+                  onClick={() =>
+                    void props.sendMessage(
+                      "Tell me about your implementation process!",
+                    )
+                  }
+                >
+                  Implementation
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </LlmChat>
     </div>
   );
 }

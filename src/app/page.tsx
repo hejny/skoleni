@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const sendMessage = useSendMessageToLlmChat();
-  const [isInitialWelcomeVisible, setInitialWelcomeVisible] = useState(true);
 
   return (
     <div className="h-screen flex flex-col relative overflow-hidden">
@@ -38,79 +37,12 @@ export default function Home() {
       {/* THE PERSONA IS THE WEBSITE - Full-screen chat interface */}
       <div className="flex-1 relative z-10 flex flex-col min-h-0">
         <div className="flex-1 max-w-6xl mx-auto w-full px-4 md:px-6 py-4 md:py-6 min-h-0">
-          {/* Welcome message overlay - appears on first visit */}
-          {isInitialWelcomeVisible && (
-            <div
-              className="fixed inset-0 pt-[72px] flex items-center justify-center z-30 pointer-events-none overflow-y-auto"
-              style={{ paddingBottom: "var(--input-bar-height)" }}
-            >
-              <div className="persona-container bg-black/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-[var(--accent)] max-w-2xl w-full mx-4 sm:mx-auto pointer-events-auto flex flex-col items-center">
-                <img
-                  src="https://www.pavolhejny.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpavol-hejny-transparent.56d4a7a5.png&w=1080&q=100"
-                  alt="Pavol Hejný"
-                  className="persona-photo"
-                />
-                <h1 className="persona-title text-3xl md:text-4xl font-bold text-white mb-3 text-center">
-                  Hi! I'm Pavol
-                </h1>
-                <p className="persona-subtitle text-gray-300 text-base md:text-lg leading-relaxed text-center max-w-xl">
-                  Welcome to my AI-powered workspace. I'm here to help transform
-                  your business with practical AI integration. Ask me about
-                  workshops, pricing, implementation strategies, or anything
-                  else you're curious about.
-                </p>
-                <div className="persona-buttons">
-                  <button
-                    type="button"
-                    className="persona-button"
-                    onClick={() =>
-                      void sendMessage("Tell me about your workshops!")
-                    }
-                  >
-                    Workshop Design
-                  </button>
-                  <button
-                    type="button"
-                    className="persona-button"
-                    onClick={() =>
-                      void sendMessage("Tell me about your AI strategy!")
-                    }
-                  >
-                    AI Strategy
-                  </button>
-                  <button
-                    type="button"
-                    className="persona-button"
-                    onClick={() =>
-                      void sendMessage("Tell me about your team training!")
-                    }
-                  >
-                    Team Training
-                  </button>
-                  <button
-                    type="button"
-                    className="persona-button"
-                    onClick={() =>
-                      void sendMessage(
-                        "Tell me about your implementation process!",
-                      )
-                    }
-                  >
-                    Implementation
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
 
           {/* The main persona interface - THIS IS THE WEBSITE */}
           <div className="flex-1 bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10 shadow-2xl overflow-hidden h-full">
             <ChatWithMe
               className="h-full"
               sendMessage={sendMessage}
-              onChange={(chatMessages) => {
-                setInitialWelcomeVisible(chatMessages.length === 0);
-              }}
             />
           </div>
         </div>
