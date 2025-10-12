@@ -2,7 +2,6 @@
 
 import { ChatWithMe } from "@/components/ChatWithMe";
 import { useSendMessageToLlmChat } from "@promptbook/components";
-import { useEffect, useState } from "react";
 
 export default function Home() {
   const sendMessage = useSendMessageToLlmChat();
@@ -37,13 +36,9 @@ export default function Home() {
       {/* THE PERSONA IS THE WEBSITE - Full-screen chat interface */}
       <div className="flex-1 relative z-10 flex flex-col min-h-0">
         <div className="flex-1 max-w-6xl mx-auto w-full px-4 md:px-6 py-4 md:py-6 min-h-0">
-
           {/* The main persona interface - THIS IS THE WEBSITE */}
           <div className="flex-1 bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10 shadow-2xl overflow-hidden h-full">
-            <ChatWithMe
-              className="h-full"
-              sendMessage={sendMessage}
-            />
+            <ChatWithMe className="h-full" sendMessage={sendMessage} />
           </div>
         </div>
       </div>
