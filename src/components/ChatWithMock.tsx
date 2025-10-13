@@ -6,6 +6,7 @@ import { Chat } from "@promptbook/components";
 export function ChatWithMock() {
   return (
     <Chat
+      title="Chat with Mock"
       messages={[
         {
           id: "1",

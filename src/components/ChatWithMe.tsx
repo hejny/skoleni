@@ -10,7 +10,7 @@ import { useMemo } from "react";
 import { useState } from "react";
 
 export function ChatWithMe(
-  props: Omit<LlmChatProps, "llmTools"> & {
+  props: Omit<LlmChatProps, "title" | "llmTools"> & {
     className?: string;
     sendMessage: (msg: string) => void;
   },
@@ -125,6 +125,7 @@ export function ChatWithMe(
   return (
     <div className={`h-full ${props.className ?? ""} relative`}>
       <LlmChat
+        title={"Chat with Pavol Hejný"}
         persistenceKey="chat-with-pavol-hejny"
         isSaveButtonEnabled={false}
         userParticipantName="USER"
