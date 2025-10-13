@@ -125,6 +125,7 @@ export function ChatWithMe(
   return (
     <div className={`h-full ${props.className ?? ""} relative`}>
       <LlmChat
+        persistenceKey="chat-with-pavol-hejny"
         isSaveButtonEnabled={false}
         userParticipantName="USER"
         llmParticipantName="PAVOL_HEJNY"
