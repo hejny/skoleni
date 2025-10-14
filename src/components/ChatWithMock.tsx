@@ -34,6 +34,10 @@ export function ChatWithMock() {
         { name: "ASSISTANT_1", fullname: "AI Assistant", color: "#10b981" },
         { name: "ASSISTANT_2", fullname: "Code Helper", color: "#f59e0b" },
       ]}
+      onFeedback={(feedbackData) => {
+        console.info(feedbackData);
+      }}
+      isSaveButtonEnabled
     />
   );
 }

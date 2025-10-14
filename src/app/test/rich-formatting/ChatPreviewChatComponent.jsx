@@ -168,6 +168,10 @@ export function TestChatRichFormatting() {
           isComplete: true,
         },
       ]}
+      onFeedback={(feedbackData) => {
+        console.info(feedbackData);
+      }}
+      isSaveButtonEnabled
     />
   );
 }
