@@ -3,7 +3,7 @@
 import { ChatWithMe } from "@/components/ChatWithMe";
 import { useSendMessageToLlmChat } from "@promptbook/components";
 
-export default function Home() {
+export default function HomePage() {
   const sendMessage = useSendMessageToLlmChat();
 
   return (
